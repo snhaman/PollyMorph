@@ -2,14 +2,13 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "meta": {
     "name": "PollyMorph",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Elucidata unified design system token file. Consolidates all core primitives and semantic component tokens.",
     "generatedAt": "2026-03-18",
     "lastAudit": "2026-03-18",
     "auditSource": "Figma PDS-2.0-Library (efOu8CmzqQ3zegLcfdQh9P)",
     "openConflicts": [
       "CONFLICT-1: core.color.platform.sidebar.stroke — PollyMorph:#373051 vs Figma:#433B60. See CONFLICTS.md.",
-      "CONFLICT-2: core.color.platform.surfaces — PollyMorph:#A78FF7 vs Figma:#FFFFFF. See CONFLICTS.md.",
       "CONFLICT-3: core.font.letter.spacing.widest (0.5px) added for Body/Large — confirm this is intentional.",
       "CONFLICT-4: core.font.weight.thick (550) added from Figma Subject/Small — confirm or remap to 500/600."
     ],
@@ -55,8 +54,17 @@
         }
       },
       "platform": {
-        "_conflict": "CONFLICT-2: surfaces value #A78FF7 (PollyMorph) vs #FFFFFF (Figma Surfaces/Platform). Resolve before using.",
-        "surfaces": "#A78FF7",
+        "surfaces": {
+          "_note": "Platform background is a gradient, not a flat colour. Direction defaults to 180deg (top-to-bottom) — adjust per context.",
+          "gradient": {
+            "stops": [
+              { "color": "#EFECF1", "position": "0%" },
+              { "color": "#F6F4F9", "position": "53%" },
+              { "color": "#E1DBE7", "position": "99%" }
+            ],
+            "css": "linear-gradient(180deg, #EFECF1 0%, #F6F4F9 53%, #E1DBE7 99%)"
+          }
+        },
         "sidebar": {
           "surfaces": "#211D33",
           "_strokeConflict": "CONFLICT-1: stroke value #373051 (PollyMorph) vs #433B60 (Figma Surfaces/Sidebar Stroke). Resolve before using.",

@@ -20,16 +20,24 @@ These don't match. `#433B60` is noticeably lighter/more purple than `#373051`. *
 
 ---
 
-### 2. `core.color.platform.surfaces`
+### ~~2. `core.color.platform.surfaces`~~ ✅ RESOLVED
 
-| Source | Value |
-|--------|-------|
-| PollyMorph (current) | `#A78FF7` |
-| Figma `Surfaces/Platform` | `#FFFFFF` |
+**Resolution (2026-03-18):** Platform surface is a gradient, not a flat colour. The original `#A78FF7` value was incorrect. Updated to:
 
-`#A78FF7` is a light lavender/purple — it doesn't appear anywhere in the Figma surface definitions. Figma defines Platform as white (`#FFFFFF`). The `#A78FF7` value looks like it may have been a placeholder or a mistake when the JSON was first authored.
+```json
+"surfaces": {
+  "gradient": {
+    "stops": [
+      { "color": "#EFECF1", "position": "0%" },
+      { "color": "#F6F4F9", "position": "53%" },
+      { "color": "#E1DBE7", "position": "99%" }
+    ],
+    "css": "linear-gradient(180deg, #EFECF1 0%, #F6F4F9 53%, #E1DBE7 99%)"
+  }
+}
+```
 
-**Which is correct?**
+Direction defaults to 180deg (top-to-bottom). Adjust per usage context.
 
 ---
 
@@ -132,9 +140,9 @@ Figma defines `Surfaces/Secondary Sidebar: #2C2840` — a mid-point between Side
 
 ---
 
-### 11. Missing `Surfaces/Lazy Loader Gradient`
+### ~~11. Missing `Surfaces/Lazy Loader Gradient`~~ ✅ RESOLVED
 
-Figma defines a `Surfaces/Lazy Loader Gradient` swatch. The value is a gradient (not a flat color) and was not captured as a hex. This needs the actual gradient definition from the design team.
+**Resolution (2026-03-18):** This is the platform surface gradient. Value confirmed and tokenised under `core.color.platform.surfaces.gradient`.
 
 ---
 
@@ -155,14 +163,14 @@ PollyMorph currently only stores the base (step 0) for each colour. The full com
 | # | Type | Item | Action needed |
 |---|------|------|---------------|
 | 1 | 🔴 | Sidebar stroke hex | Pick `#373051` or `#433B60` |
-| 2 | 🔴 | Platform surface hex | Pick `#A78FF7` or `#FFFFFF` |
+| 2 | ✅ | Platform surface | Resolved — gradient tokenised |
 | 3 | 🔴 | Body Large letter spacing | Confirm `0.5px` or adjust |
 | 4 | 🔴 | Font weight 550 | Confirm or map to 500/600 |
-| 5 | 🟡 | Slate type scale | Ready to add |
-| 6 | 🟡 | Subject type scale | Ready to add (pending conflict #4) |
-| 7 | 🟡 | Icon font type scale | Ready to add |
-| 8 | 🟡 | Icon font family token | Ready to add |
-| 9 | 🟡 | Letter spacing 0.15/0.3/0.5px | Ready to add |
-| 10 | 🟡 | Secondary Sidebar surface | Ready to add |
-| 11 | 🟡 | Lazy Loader Gradient | Needs gradient value from design |
+| 5 | ✅ | Slate type scale | Added in v1.1.0 |
+| 6 | ✅ | Subject type scale | Added in v1.1.0 |
+| 7 | ✅ | Icon font type scale | Added in v1.1.0 |
+| 8 | ✅ | Icon font family token | Added in v1.1.0 |
+| 9 | ✅ | Letter spacing 0.15/0.3/0.5px | Added in v1.1.0 |
+| 10 | ✅ | Secondary Sidebar surface | Added in v1.1.0 |
+| 11 | ✅ | Lazy Loader Gradient | Resolved — same as platform surface gradient |
 | 12 | 🟡 | Full colour tint/shade scale | Separate pass recommended |

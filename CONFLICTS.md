@@ -9,14 +9,9 @@ Items marked **🟡 GAP** exist in Figma but are missing from PollyMorph entirel
 
 ## 🔴 CONFLICTS (need a decision before merging)
 
-### 1. `core.color.platform.sidebar.stroke`
+### ~~1. `core.color.platform.sidebar.stroke`~~ ✅ RESOLVED
 
-| Source | Value |
-|--------|-------|
-| PollyMorph (current) | `#373051` |
-| Figma `Surfaces/Sidebar Stroke` | `#433B60` |
-
-These don't match. `#433B60` is noticeably lighter/more purple than `#373051`. **Which is correct?**
+**Resolution (2026-03-18):** Figma value confirmed correct. Updated to `#433B60`.
 
 ---
 
@@ -41,29 +36,15 @@ Direction defaults to 180deg (top-to-bottom). Adjust per usage context.
 
 ---
 
-### 3. `core.font.size.body.large` — letter spacing
+### ~~3. `core.font.size.body.large` — letter spacing~~ ✅ RESOLVED
 
-| Source | Value |
-|--------|-------|
-| PollyMorph `font.letter.spacing` (named scale) | No step for `0.5px` — closest is `wider` at `0.35px` |
-| Figma `Body/Large` | `+0.5px` letter spacing |
-
-Body Large uses a letter spacing value that doesn't exist in the current token scale. Either the scale needs a new step, or Body Large's tracking needs to be corrected.
-
-**Is `0.5px` intentional for Body Large, or should it be `0.35px`?**
+**Resolution (2026-03-18):** Figma value confirmed correct. `0.5px` is intentional for Body/Large. `widest: "0.5px"` is now a confirmed step in the letter spacing scale.
 
 ---
 
-### 4. `core.font.weight` — missing step 550
+### ~~4. `core.font.weight` — missing step 550~~ ✅ RESOLVED
 
-| Source | Value |
-|--------|-------|
-| PollyMorph weights | `400, 450, 500, 600, 700` |
-| Figma `Subject/Small` | `weight: 550` |
-
-Weight 550 sits between `semiBold (600)` and `medium (500)` and is used in the Subject/Small text style. It's not in the current weight scale.
-
-**Is 550 intentional, or should Subject/Small use 500 or 600?**
+**Resolution (2026-03-18):** Weight 550 confirmed intentional. Retained as `thick: "550"` in the weight scale.
 
 ---
 
@@ -162,10 +143,10 @@ PollyMorph currently only stores the base (step 0) for each colour. The full com
 
 | # | Type | Item | Action needed |
 |---|------|------|---------------|
-| 1 | 🔴 | Sidebar stroke hex | Pick `#373051` or `#433B60` |
+| 1 | ✅ | Sidebar stroke hex | Resolved — `#433B60` (Figma) |
 | 2 | ✅ | Platform surface | Resolved — gradient tokenised |
-| 3 | 🔴 | Body Large letter spacing | Confirm `0.5px` or adjust |
-| 4 | 🔴 | Font weight 550 | Confirm or map to 500/600 |
+| 3 | ✅ | Body Large letter spacing | Resolved — `0.5px` confirmed |
+| 4 | ✅ | Font weight 550 | Resolved — `thick: 550` confirmed |
 | 5 | ✅ | Slate type scale | Added in v1.1.0 |
 | 6 | ✅ | Subject type scale | Added in v1.1.0 |
 | 7 | ✅ | Icon font type scale | Added in v1.1.0 |

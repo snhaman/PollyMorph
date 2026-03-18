@@ -2,16 +2,12 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "meta": {
     "name": "PollyMorph",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Elucidata unified design system token file. Consolidates all core primitives and semantic component tokens.",
     "generatedAt": "2026-03-18",
     "lastAudit": "2026-03-18",
     "auditSource": "Figma PDS-2.0-Library (efOu8CmzqQ3zegLcfdQh9P)",
-    "openConflicts": [
-      "CONFLICT-1: core.color.platform.sidebar.stroke — PollyMorph:#373051 vs Figma:#433B60. See CONFLICTS.md.",
-      "CONFLICT-3: core.font.letter.spacing.widest (0.5px) added for Body/Large — confirm this is intentional.",
-      "CONFLICT-4: core.font.weight.thick (550) added from Figma Subject/Small — confirm or remap to 500/600."
-    ],
+    "openConflicts": [],
     "colorScaleSystem": {
       "description": "Each primary and secondary colour has a full tint/shade scale in Figma. Positive step numbers (10–98) mix the base colour with white. Negative step numbers (-10 to -80) mix with black. Step 0 is the pure base colour. Example: Purple/80 = base purple at 80% opacity over white.",
       "steps": [98, 95, 92, 90, 85, 80, 75, 70, 60, 50, 40, 30, 20, 10, 0, -10, -20, -30, -40, -50, -60, -80],
@@ -67,8 +63,7 @@
         },
         "sidebar": {
           "surfaces": "#211D33",
-          "_strokeConflict": "CONFLICT-1: stroke value #373051 (PollyMorph) vs #433B60 (Figma Surfaces/Sidebar Stroke). Resolve before using.",
-          "stroke": "#373051",
+          "stroke": "#433B60",
           "secondarySurfaces": "#2C2840"
         }
       },
@@ -164,8 +159,7 @@
         "medium": "500",
         "thick": "550",
         "semiBold": "600",
-        "bold": "700",
-        "_thickNote": "CONFLICT-4: weight 550 added from Figma Subject/Small. Confirm it is intentional or remap to 500/600."
+        "bold": "700"
       },
       "height": {
         "display": {
@@ -234,8 +228,7 @@
           "wider": "0.35px",
           "subtleWide": "0.15px",
           "semiWide": "0.3px",
-          "widest": "0.5px",
-          "_widestNote": "CONFLICT-3: 0.5px used by Figma Body/Large. Confirm intentional — previously had no step above 0.35px."
+          "widest": "0.5px"
         }
       }
     },

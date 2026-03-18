@@ -1,0 +1,117 @@
+/* PDS-Icon-Font-20 — Elucidata icon font
+ * Bundled with @snhaman/pollymorph — import via "@snhaman/pollymorph/fonts"
+ * Usage: <span class="pds-icon pds-icon--settings"></span>
+ *    or: element { font-family: 'PDS-Icon-Font-20'; content: "\\E946"; }
+ */
+
+@font-face {
+  font-family: 'PDS-Icon-Font-20';
+  src: url('./fonts/PDS-Icon-Font-20.woff2') format('woff2'),
+       url('./fonts/PDS-Icon-Font-20.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="pds-icon--"],
+[class*=" pds-icon--"] {
+  font-family: 'PDS-Icon-Font-20' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pds-icon--meatballs-settings::before { content: "\E900"; }
+.pds-icon--add-to-shortlist::before { content: "\E901"; }
+.pds-icon--shortlist::before { content: "\E902"; }
+.pds-icon--upload-file::before { content: "\E903"; }
+.pds-icon--download-file::before { content: "\E904"; }
+.pds-icon--edit::before { content: "\E905"; }
+.pds-icon--duplicate-or-copy::before { content: "\E906"; }
+.pds-icon--print::before { content: "\E907"; }
+.pds-icon--open-in-new-window::before { content: "\E908"; }
+.pds-icon--table-editor::before { content: "\E909"; }
+.pds-icon--table-sort::before { content: "\E90A"; }
+.pds-icon--save::before { content: "\E90B"; }
+.pds-icon--delete::before { content: "\E90C"; }
+.pds-icon--open-folder::before { content: "\E90D"; }
+.pds-icon--analyse::before { content: "\E90E"; }
+.pds-icon--star-empty::before { content: "\E90F"; }
+.pds-icon--filter::before { content: "\E910"; }
+.pds-icon--add::before { content: "\E911"; }
+.pds-icon--contract::before { content: "\E912"; }
+.pds-icon--expand::before { content: "\E913"; }
+.pds-icon--close::before { content: "\E914"; }
+.pds-icon--up-chevron::before { content: "\E915"; }
+.pds-icon--left-chevron::before { content: "\E916"; }
+.pds-icon--right-chevron::before { content: "\E917"; }
+.pds-icon--expand-chevron::before { content: "\E918"; }
+.pds-icon--up-carrot::before { content: "\E919"; }
+.pds-icon--left-carrot::before { content: "\E91A"; }
+.pds-icon--right-carrot::before { content: "\E91B"; }
+.pds-icon--down-carrot::before { content: "\E91C"; }
+.pds-icon--arrow-up::before { content: "\E91D"; }
+.pds-icon--arrow-left-back::before { content: "\E91E"; }
+.pds-icon--arrow-right-forward::before { content: "\E91F"; }
+.pds-icon--arrow-down::before { content: "\E920"; }
+.pds-icon--north-east::before { content: "\E921"; }
+.pds-icon--north-west::before { content: "\E922"; }
+.pds-icon--south-east::before { content: "\E923"; }
+.pds-icon--south-west::before { content: "\E924"; }
+.pds-icon--arrow-forward-large::before { content: "\E925"; }
+.pds-icon--arrow-back-large::before { content: "\E926"; }
+.pds-icon--skip-to-first::before { content: "\E927"; }
+.pds-icon--skip-to-last::before { content: "\E928"; }
+.pds-icon--star-full::before { content: "\E929"; }
+.pds-icon--visibility-on::before { content: "\E92A"; }
+.pds-icon--visibility-off::before { content: "\E92B"; }
+.pds-icon--pinned::before { content: "\E92C"; }
+.pds-icon--pin::before { content: "\E92D"; }
+.pds-icon--star-half::before { content: "\E92E"; }
+.pds-icon--previous-arrow::before { content: "\E92F"; }
+.pds-icon--next-arrow::before { content: "\E930"; }
+.pds-icon--folder-open::before { content: "\E931"; }
+.pds-icon--folder::before { content: "\E932"; }
+.pds-icon--create-new-folder::before { content: "\E933"; }
+.pds-icon--upload-folder::before { content: "\E934"; }
+.pds-icon--archive::before { content: "\E935"; }
+.pds-icon--unarchive::before { content: "\E936"; }
+.pds-icon--link::before { content: "\E937"; }
+.pds-icon--done::before { content: "\E938"; }
+.pds-icon--chart-icon::before { content: "\E939"; }
+.pds-icon--document::before { content: "\E93A"; }
+.pds-icon--code-document::before { content: "\E93B"; }
+.pds-icon--info::before { content: "\E93C"; }
+.pds-icon--swap::before { content: "\E93D"; }
+.pds-icon--description::before { content: "\E93E"; }
+.pds-icon--history::before { content: "\E93F"; }
+.pds-icon--rename::before { content: "\E940"; }
+.pds-icon--pan-move::before { content: "\E941"; }
+.pds-icon--github::before { content: "\E942"; }
+.pds-icon--curation::before { content: "\E943"; }
+.pds-icon--help-and-support::before { content: "\E944"; }
+.pds-icon--user-profile::before { content: "\E945"; }
+.pds-icon--settings::before { content: "\E946"; }
+.pds-icon--notification::before { content: "\E947"; }
+.pds-icon--ingestion::before { content: "\E948"; }
+.pds-icon--omix-logo-simple::before { content: "\E949"; }
+.pds-icon--workspaces::before { content: "\E94A"; }
+.pds-icon--application::before { content: "\E94B"; }
+.pds-icon--users-o-a::before { content: "\E94C"; }
+.pds-icon--admin::before { content: "\E94D"; }
+.pds-icon--cost-wallet::before { content: "\E94E"; }
+.pds-icon--split-view::before { content: "\E94F"; }
+.pds-icon--summary-view::before { content: "\E9B0"; } /* codepoint unverified */
+.pds-icon--list-view::before { content: "\E9B1"; } /* codepoint unverified */
+.pds-icon--card-view::before { content: "\E9B2"; } /* codepoint unverified */
+.pds-icon--table-view::before { content: "\E9B3"; } /* codepoint unverified */
+.pds-icon--cancel-round::before { content: "\E9B4"; } /* codepoint unverified */
+.pds-icon--user-single::before { content: "\E9B5"; } /* codepoint unverified */
+.pds-icon--add-user::before { content: "\E9B6"; } /* codepoint unverified */
+.pds-icon--calendar-event::before { content: "\E9B7"; } /* codepoint unverified */
+.pds-icon--calendar-empty::before { content: "\E9B8"; } /* codepoint unverified */

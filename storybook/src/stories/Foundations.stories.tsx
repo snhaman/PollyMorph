@@ -3,152 +3,146 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta: Meta = {
   title: "Foundations/Colors",
   tags: ["autodocs"],
-  parameters: {
-    docs: {
-      description: {
-        component: `
-**PollyMorph Color System** — \`core.color\`
-
-21 colors, each with a 22-step tint/shade ramp.
-- Positive steps (98–10): mix the base with white
-- Negative steps (−10 to −80): mix the base with black
-- Step 0: pure base color
-
-**Usage rules from \`rules.color\`:**
-- Primary purple is the brand color: CTAs, active states, highlights.
-- Primary orange is the secondary brand accent: data-driven UI (charts, callouts).
-- Cyan, pink, and blue are accent-only — never for primary actions or navigation.
-- Yellow / Red / Green / Blue = status colors only (warning, error, success, info).
-        `,
-      },
-    },
-  },
 };
-
 export default meta;
 
-const PALETTE = [
-  { name: "primary.purple", base: "#8E42EE", ramp: ["#F5EDFD","#EAD9FB","#DFC5F9","#D5B8F8","#C5A0F6","#B88AF4","#9E6CF0","#8E42EE","#7532D0","#5F29A6","#4D2287","#3B1A68"] },
-  { name: "primary.orange", base: "#F78E12", ramp: ["#FEF4E6","#FDDBB4","#FCC37F","#FBA84A","#F78E12","#D47800","#AE6200","#8A4E00","#673B00","#452800",""] },
-  { name: "primary.red",    base: "#FF004D", ramp: ["#FFE0EA","#FFC2D5","#FF99B8","#FF6699","#FF3370","#FF004D","#CC003D","#99002E","#66001F","",""] },
-  { name: "primary.green",  base: "#24CF35", ramp: ["#DFFCE2","#B8F9BE","#88F491","#56EF63","#24CF35","#1BA829","#12801E","#0A5814","#04310B","",""] },
-  { name: "primary.yellow", base: "#F7E217", ramp: ["#FEFBE0","#FDF5AD","#FBEC72","#FAE437","#F7E217","#D4C10C","#A89709","#7D6F06","#534904","",""] },
-  { name: "primary.blue",   base: "#3C5DE2", ramp: ["#E4E8FA","#C6CCF6","#A4ACEF","#808BE7","#3C5DE2","#2E48C9","#2237A0","#182877","#0E1A4E","",""] },
-  { name: "secondary.purple", base: "#936DC3", ramp: [] },
-  { name: "secondary.cyan",   base: "#21A3B9", ramp: [] },
-  { name: "secondary.pink",   base: "#D85C99", ramp: [] },
-  { name: "secondary.blue",   base: "#6173BD", ramp: [] },
-  { name: "neutral.purple",   base: "#968AA6", ramp: [] },
-];
-
-const SURFACES = [
-  { name: "sidebar.bg", value: "#211D33" },
-  { name: "sidebar.stroke", value: "#433B60" },
-  { name: "card.bg", value: "#FFFFFF" },
-];
-
-const ColorSwatch = ({ name, hex }: { name: string; hex: string }) => (
+const Swatch = ({ name, hex }: { name: string; hex: string }) => (
   <div className="flex flex-col gap-1 w-24">
-    <div
-      className="h-12 w-full rounded-[var(--radius-md)] border border-black/10"
-      style={{ backgroundColor: hex }}
-    />
-    <p className="text-[10px] font-mono text-[var(--color-neutral-grey)] leading-tight break-all">{name}</p>
-    <p className="text-[10px] font-mono text-[var(--color-neutral-dark)] leading-tight">{hex}</p>
+    <div className="h-12 w-full rounded-[var(--radius-md)] border border-black/10" style={{ backgroundColor: hex }} />
+    <p style={{ fontSize: "10px", fontFamily: "monospace", color: "var(--color-neutral-grey)", lineHeight: 1.2 }}>{name}</p>
+    <p style={{ fontSize: "10px", fontFamily: "monospace", color: "var(--color-neutral-dark)", lineHeight: 1.2 }}>{hex}</p>
   </div>
 );
 
 export const ColorPalette: StoryObj = {
   render: () => (
-    <div className="flex flex-col gap-8 p-4">
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem", padding: "1rem" }}>
       <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Primary colors</h3>
-        <div className="flex flex-wrap gap-4">
-          {PALETTE.filter(p => p.name.startsWith("primary")).map(c => (
-            <ColorSwatch key={c.name} name={c.name} hex={c.base} />
-          ))}
+        <p style={{ fontSize: "12px", fontWeight: 700, fontFamily: "Inter, sans-serif", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-neutral-grey)", marginBottom: "12px" }}>Primary</p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+          {[["purple","#8E42EE"],["orange","#F78E12"],["red","#FF004D"],["green","#24CF35"],["yellow","#F7E217"],["blue","#3C5DE2"],["cyan","#06B6D4"],["pink","#EC4899"]].map(([n,c])=><Swatch key={n} name={`primary.${n}`} hex={c}/>)}
         </div>
       </div>
-
       <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Secondary colors</h3>
-        <div className="flex flex-wrap gap-4">
-          {PALETTE.filter(p => p.name.startsWith("secondary")).map(c => (
-            <ColorSwatch key={c.name} name={c.name} hex={c.base} />
-          ))}
+        <p style={{ fontSize: "12px", fontWeight: 700, fontFamily: "Inter, sans-serif", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-neutral-grey)", marginBottom: "12px" }}>Secondary</p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+          {[["purple","#936DC3"],["orange","#D98C30"],["pink","#D85C99"],["cyan","#21A3B9"],["blue","#6173BD"],["red","#CC3361"]].map(([n,c])=><Swatch key={n} name={`secondary.${n}`} hex={c}/>)}
         </div>
       </div>
-
       <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Neutral palette</h3>
-        <div className="flex flex-wrap gap-4">
-          {PALETTE.filter(p => p.name.startsWith("neutral")).map(c => (
-            <ColorSwatch key={c.name} name={c.name} hex={c.base} />
-          ))}
+        <p style={{ fontSize: "12px", fontWeight: 700, fontFamily: "Inter, sans-serif", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-neutral-grey)", marginBottom: "12px" }}>Status</p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+          {[["yellow","#F7E217"],["red","#FF004D"],["green","#24CF35"],["blue","#3C5DE2"]].map(([n,c])=><Swatch key={n} name={`status.${n}`} hex={c}/>)}
         </div>
       </div>
-
       <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Surfaces</h3>
-        <div className="flex flex-wrap gap-4">
-          {SURFACES.map(s => (
-            <ColorSwatch key={s.name} name={s.name} hex={s.value} />
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Purple ramp (sample)</h3>
-        <div className="flex flex-wrap gap-2">
-          {PALETTE[0].ramp.filter(Boolean).map((hex, i) => (
-            <div key={i} className="flex flex-col gap-0.5 w-16">
-              <div className="h-8 rounded border border-black/10" style={{ backgroundColor: hex }} />
-              <p className="text-[9px] font-mono text-[var(--color-neutral-grey)]">{hex}</p>
+        <p style={{ fontSize: "12px", fontWeight: 700, fontFamily: "Inter, sans-serif", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--color-neutral-grey)", marginBottom: "12px" }}>Chart sequence — apply in order, never skip</p>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
+          {["#936DC3","#F78E12","#21A3B9","#6173BD","#D85C99","#24CF35","#D98C30","#3C5DE2","#CC3361"].map((c,i)=>(
+            <div key={i} style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:"2px" }}>
+              <div style={{ width:32, height:32, borderRadius:"50%", backgroundColor:c, border:"1px solid rgba(0,0,0,0.1)" }}/>
+              <span style={{ fontSize:9, fontFamily:"monospace", color:"var(--color-neutral-grey)" }}>{i+1}</span>
             </div>
           ))}
         </div>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold font-inter text-[var(--color-neutral-dark)] mb-3">Chart sequence</h3>
-        <div className="flex gap-2 items-center flex-wrap">
-          {[
-            { n: 1, c: "#936DC3" }, { n: 2, c: "#F78E12" }, { n: 3, c: "#21A3B9" },
-            { n: 4, c: "#6173BD" }, { n: 5, c: "#D85C99" }, { n: 6, c: "#24CF35" },
-            { n: 7, c: "#D98C30" }, { n: 8, c: "#3C5DE2" }, { n: 9, c: "#CC3361" },
-          ].map(({ n, c }) => (
-            <div key={n} className="flex flex-col gap-0.5 items-center">
-              <div className="h-8 w-8 rounded-full border border-black/10" style={{ backgroundColor: c }} />
-              <p className="text-[9px] font-mono text-[var(--color-neutral-grey)]">{n}</p>
-            </div>
-          ))}
-        </div>
-        <p className="text-xs text-[var(--color-neutral-grey)] font-inter mt-2">
-          Apply in sequence. Do not skip or reorder colors.
-        </p>
       </div>
     </div>
   ),
 };
 
+const TypeRow = ({ label, spec, sample, style }: { label: string; spec: string; sample: string; style: React.CSSProperties }) => (
+  <div style={{ display:"flex", alignItems:"baseline", gap:"1.5rem", borderBottom:"1px solid var(--color-neutral-light)", padding:"12px 0" }}>
+    <div style={{ width:160, flexShrink:0 }}>
+      <p style={{ fontSize:10, fontFamily:"monospace", color:"var(--color-neutral-grey)", lineHeight:1.3 }}>{label}</p>
+      <p style={{ fontSize:9, fontFamily:"monospace", color:"#9CA3AF", lineHeight:1.3, marginTop:2 }}>{spec}</p>
+    </div>
+    <p style={{ ...style, color:"var(--color-neutral-dark)", margin:0 }}>{sample}</p>
+  </div>
+);
+
 export const Typography: StoryObj = {
-  name: "Typography",
   render: () => (
-    <div className="flex flex-col gap-6 p-4 max-w-2xl">
-      {[
-        { label: "display.large — 3.375rem / Inter 700", text: "Platform for multi-omics", style: { fontSize: "3.375rem", fontWeight: 700, fontFamily: "'Inter', sans-serif" } },
-        { label: "headline.large — 2rem / Inter 600", text: "Differential Expression Analysis", style: { fontSize: "2rem", fontWeight: 600, fontFamily: "'Inter', sans-serif" } },
-        { label: "title.large — 1.375rem / Inter 600", text: "Dataset overview", style: { fontSize: "1.375rem", fontWeight: 600, fontFamily: "'Inter', sans-serif" } },
-        { label: "body.medium — 0.875rem / Inter 400", text: "Genes with adjusted p-value < 0.05 and |log₂FC| > 1 are highlighted.", style: { fontSize: "0.875rem", fontWeight: 400, fontFamily: "'Inter', sans-serif" } },
-        { label: "label.medium — 0.75rem / Inter 600", text: "SAMPLE ID", style: { fontSize: "0.75rem", fontWeight: 600, fontFamily: "'Inter', sans-serif", letterSpacing: "0.05em" } },
-        { label: "slate.large — 2rem / Space Grotesk 600", text: "Powered by Polly", style: { fontSize: "2rem", fontWeight: 600, fontFamily: "'Space Grotesk', sans-serif" } },
-        { label: "mono — 0.875rem / JetBrains Mono 400", text: "SELECT * FROM cohort WHERE p_adj < 0.05", style: { fontSize: "0.875rem", fontWeight: 400, fontFamily: "'JetBrains Mono', monospace" } },
-      ].map(({ label, text, style }) => (
-        <div key={label} className="flex flex-col gap-1 border-b border-[var(--color-neutral-light)] pb-4">
-          <p className="text-[10px] font-mono text-[var(--color-neutral-grey)]">{label}</p>
-          <p style={style} className="text-[var(--color-neutral-dark)] leading-tight">{text}</p>
+    <div style={{ display:"flex", flexDirection:"column", gap:"2.5rem", padding:"1rem", maxWidth:800 }}>
+
+      <section>
+        <div style={{ display:"flex", alignItems:"center", gap:"12px", marginBottom:"8px" }}>
+          <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:0 }}>Display</p>
+          <span style={{ display:"inline-flex", alignItems:"center", padding:"2px 8px", borderRadius:9999, fontSize:10, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.05em", background:"#FEF3C7", color:"#92400E", border:"1px solid #FDE68A" }}>Web &amp; Marketing only — not for product UI</span>
         </div>
-      ))}
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Reserved for hero text on websites and marketing pages. Too large for software interfaces.</p>
+        {[
+          { label:"display.lg", spec:"Space Grotesk · 54/64 · 400", size:"3.375rem", lh:"4rem",    fw:400 },
+          { label:"display.md", spec:"Space Grotesk · 44/52 · 450", size:"2.75rem",  lh:"3.25rem", fw:450 },
+          { label:"display.sm", spec:"Space Grotesk · 36/44 · 500", size:"2.25rem",  lh:"2.75rem", fw:500 },
+        ].map(({label,spec,size,lh,fw})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="The quick brown fox" style={{ fontFamily:"'Space Grotesk', sans-serif", fontSize:size, lineHeight:lh, fontWeight:fw }} />
+        ))}
+      </section>
+
+      <section>
+        <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:"0 0 4px" }}>Slate</p>
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Section and page headings inside the product.</p>
+        {[
+          { label:"slate.lg", spec:"Space Grotesk · 32/40 · 450 · 0",      size:"2rem",    lh:"2.5rem",  fw:450, ls:"0" },
+          { label:"slate.md", spec:"Space Grotesk · 28/36 · 500 · +0.5px", size:"1.75rem", lh:"2.25rem", fw:500, ls:"0.03125rem" },
+          { label:"slate.sm", spec:"Space Grotesk · 24/32 · 600 · +0.5px", size:"1.5rem",  lh:"2rem",    fw:600, ls:"0.03125rem" },
+        ].map(({label,spec,size,lh,fw,ls})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="Dataset overview" style={{ fontFamily:"'Space Grotesk', sans-serif", fontSize:size, lineHeight:lh, fontWeight:fw, letterSpacing:ls }} />
+        ))}
+      </section>
+
+      <section>
+        <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:"0 0 4px" }}>Title</p>
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Paragraph and content headers — card titles, panel headings, table column labels.</p>
+        {[
+          { label:"title.lg", spec:"Inter · 22/28 · 500 · 0",      size:"1.375rem", lh:"1.75rem", fw:500, ls:"0" },
+          { label:"title.md", spec:"Inter · 16/24 · 600 · 0",      size:"1rem",     lh:"1.5rem",  fw:600, ls:"0" },
+          { label:"title.sm", spec:"Inter · 14/20 · 600 · 0",      size:"0.875rem", lh:"1.25rem", fw:600, ls:"0" },
+          { label:"title.xs", spec:"Inter · 12/16 · 600 · +0.2px", size:"0.75rem",  lh:"1rem",    fw:600, ls:"0.0125rem" },
+        ].map(({label,spec,size,lh,fw,ls})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="Differential expression results" style={{ fontFamily:"'Inter', sans-serif", fontSize:size, lineHeight:lh, fontWeight:fw, letterSpacing:ls }} />
+        ))}
+      </section>
+
+      <section>
+        <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:"0 0 4px" }}>Body</p>
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Main body text for all running copy.</p>
+        {[
+          { label:"body.lg", spec:"Inter · 16/28 · 400 · 0",      size:"1rem",      lh:"1.75rem",  fw:400, ls:"0" },
+          { label:"body.md", spec:"Inter · 14/24 · 400 · 0",      size:"0.875rem",  lh:"1.5rem",   fw:400, ls:"0" },
+          { label:"body.sm", spec:"Inter · 12/20 · 400 · +0.1px", size:"0.75rem",   lh:"1.25rem",  fw:400, ls:"0.00625rem" },
+          { label:"body.xs", spec:"Inter · 11/18 · 400 · +0.2px", size:"0.6875rem", lh:"1.125rem", fw:400, ls:"0.0125rem" },
+        ].map(({label,spec,size,lh,fw,ls})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="Genes with adjusted p-value < 0.05 are highlighted in the volcano plot." style={{ fontFamily:"'Inter', sans-serif", fontSize:size, lineHeight:lh, fontWeight:fw, letterSpacing:ls }} />
+        ))}
+      </section>
+
+      <section>
+        <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:"0 0 4px" }}>CLI</p>
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Code snippets, terminal output, monospace values.</p>
+        {[
+          { label:"cli.lg", spec:"JetBrains Mono · 14/20 · 500 · 0",       size:"0.875rem",  lh:"1.25rem",  fw:500, ls:"0" },
+          { label:"cli.md", spec:"JetBrains Mono · 12/16 · 500 · +0.2px",  size:"0.75rem",   lh:"1rem",     fw:500, ls:"0.0125rem" },
+          { label:"cli.sm", spec:"JetBrains Mono · 11/16 · 500 · +0.35px", size:"0.6875rem", lh:"1rem",     fw:500, ls:"0.021875rem" },
+          { label:"cli.xs", spec:"JetBrains Mono · 10/14 · 500 · +0.35px", size:"0.625rem",  lh:"0.875rem", fw:500, ls:"0.021875rem" },
+        ].map(({label,spec,size,lh,fw,ls})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="polly files sync --workspace tcga-luad --output /data" style={{ fontFamily:"'JetBrains Mono', monospace", fontSize:size, lineHeight:lh, fontWeight:fw, letterSpacing:ls }} />
+        ))}
+      </section>
+
+      <section>
+        <p style={{ fontSize:11, fontWeight:700, fontFamily:"Inter, sans-serif", textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--color-neutral-grey)", margin:"0 0 4px" }}>Tag</p>
+        <p style={{ fontSize:"0.75rem", fontFamily:"Inter, sans-serif", color:"var(--color-neutral-grey)", marginBottom:16 }}>Used in tags, tabs, and chips. Always uppercase.</p>
+        {[
+          { label:"tag.lg", spec:"Inter Bold · 14/20 · 700 · 0",       size:"0.875rem",  lh:"1.25rem",  fw:700, ls:"0" },
+          { label:"tag.md", spec:"Inter Bold · 12/16 · 700 · +0.2px",  size:"0.75rem",   lh:"1rem",     fw:700, ls:"0.0125rem" },
+          { label:"tag.sm", spec:"Inter Bold · 11/16 · 700 · +0.35px", size:"0.6875rem", lh:"1rem",     fw:700, ls:"0.021875rem" },
+          { label:"tag.xs", spec:"Inter Bold · 10/14 · 700 · +0.35px", size:"0.625rem",  lh:"0.875rem", fw:700, ls:"0.021875rem" },
+        ].map(({label,spec,size,lh,fw,ls})=>(
+          <TypeRow key={label} label={label} spec={spec} sample="RNA-SEQ · DIFFERENTIAL EXPRESSION · PATHWAY" style={{ fontFamily:"'Inter', sans-serif", fontSize:size, lineHeight:lh, fontWeight:fw, letterSpacing:ls, textTransform:"uppercase" }} />
+        ))}
+      </section>
+
     </div>
   ),
 };

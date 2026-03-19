@@ -33,7 +33,6 @@ export type TagVariant = "filled" | "outlined";
 const tagBase = cva(
   [
     "inline-flex items-center gap-1",
-    "font-inter font-medium leading-none",
     "border rounded-full",
     "max-w-full overflow-hidden",
     "select-none",
@@ -41,10 +40,10 @@ const tagBase = cva(
   {
     variants: {
       size: {
-        large:  "h-6   px-2.5 text-sm",
-        medium: "h-5   px-2   text-xs",
-        small:  "h-4   px-1.5 text-[0.6875rem]",
-        micro:  "h-3.5 px-1   text-[0.625rem]",
+        large:  "h-6   px-2.5 text-tag-lg",
+        medium: "h-5   px-2   text-tag-md",
+        small:  "h-4   px-1.5 text-tag-sm",
+        micro:  "h-3.5 px-1   text-tag-xs",
       },
     },
     defaultVariants: {
